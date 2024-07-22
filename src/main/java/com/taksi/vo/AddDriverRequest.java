@@ -26,4 +26,7 @@ public class AddDriverRequest {
 	@NotBlank
 	private String licenseNo;
 	
+	@NotBlank
+	private String serviceType;
+	
 }

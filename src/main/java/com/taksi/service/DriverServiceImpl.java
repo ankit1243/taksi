@@ -25,7 +25,7 @@ public class DriverServiceImpl implements DriverService{
 		if(driverDataBean.addDriver(phoneNo, addDriverRequest)) {
 			return new ResponseEntity<>(Collections.singletonMap("driverId", addDriverRequest.getDriverId()),HttpStatus.CREATED);
 		}
-		return new ResponseEntity<>(Collections.singletonMap("error","Driver already exists with phone no:"+ addDriverRequest.getPhoneNo()), HttpStatus.CONFLICT);
+		return new ResponseEntity<>(Collections.singletonMap("error","Driver already exists"), HttpStatus.CONFLICT);
 	}
 
 }

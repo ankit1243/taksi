@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 		if(customerDB.addCustomer(addCustomerRequest.getPhoneNo(), addCustomerRequest)) {
 			return new ResponseEntity<>(Collections.singletonMap("customerId", addCustomerRequest.getCustomerId()),HttpStatus.CREATED);
 		}
-		return new ResponseEntity<>(Collections.singletonMap("error","Customer already exists with phone no:" + addCustomerRequest.getPhoneNo()), HttpStatus.CONFLICT);
+		return new ResponseEntity<>(Collections.singletonMap("error","Customer already exists"), HttpStatus.CONFLICT);
 	}
 
 }
