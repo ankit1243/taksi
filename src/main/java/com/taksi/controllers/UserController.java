@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.taksi.service.CustomerService;
 
-import com.taksi.vo.AddCustomerRequest;
+import com.taksi.vo.Customer;
 
 import jakarta.validation.Valid;
 
@@ -22,7 +22,7 @@ public class UserController {
 	private CustomerService customerService;
 	
 	@PostMapping("/customer/signup")
-	public ResponseEntity<Map<String,String>> addCustomer(@Valid @RequestBody AddCustomerRequest addCustomerRequest) {
+	public ResponseEntity<Map<String,String>> addCustomer(@Valid @RequestBody Customer addCustomerRequest) {
 		return customerService.createCustomer(addCustomerRequest);
 	}
 }

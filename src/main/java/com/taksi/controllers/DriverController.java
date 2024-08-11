@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.taksi.service.DriverService;
-import com.taksi.vo.AddDriverRequest;
+import com.taksi.vo.Driver;
 
 import jakarta.validation.Valid;
 
@@ -22,7 +22,7 @@ public class DriverController {
 	private DriverService driverService;
 
 	@PostMapping(value = "/driver/signup" , produces = "application/json")
-	public ResponseEntity<Map<String,String>> addDriver(@Valid @RequestBody AddDriverRequest addDriverRequest) {
+	public ResponseEntity<Map<String,String>> addDriver(@Valid @RequestBody Driver addDriverRequest) {
 
 		return driverService.addDriver(addDriverRequest);
 	}

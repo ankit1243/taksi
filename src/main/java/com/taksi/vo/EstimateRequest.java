@@ -8,7 +8,7 @@ public class EstimateRequest {
 	private Coordinates coordinates;
 	
 	@Getter
-	public static class Coordinates{
+	public class Coordinates{
 		private double currLat;
 		private double currLon;
 		private double desLat;

@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.taksi.data.CustomerDataBean;
-import com.taksi.vo.AddCustomerRequest;
+import com.taksi.vo.Customer;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDataBean customerDB;
 
 	@Override
-	public ResponseEntity<Map<String,String>> createCustomer(AddCustomerRequest addCustomerRequest) {
+	public ResponseEntity<Map<String,String>> createCustomer(Customer addCustomerRequest) {
 		 //need to add validations for phone number
 		addCustomerRequest.setCustomerId(addCustomerRequest.getPhoneNo()+UUID.randomUUID().toString());
 		if(customerDB.addCustomer(addCustomerRequest.getPhoneNo(), addCustomerRequest)) {

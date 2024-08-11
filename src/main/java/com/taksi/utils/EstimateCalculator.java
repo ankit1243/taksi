@@ -12,7 +12,7 @@ public class EstimateCalculator {
 
 	public Map<ServiceTypeEnum,Double> fareCalculator(Coordinates coordinates) {
 		try {
-			double distance = getDistance(coordinates);
+			double distance = getDistance(coordinates.getDesLat(),coordinates.getDesLon(),coordinates.getCurrLat(),coordinates.getCurrLon());
 			Map<ServiceTypeEnum,Double> fareMap = new HashMap<>();
 			for(ServiceTypeEnum serviceType: ServiceTypeEnum.values()) {
 				fareMap.put(serviceType, Math.floor(serviceType.getCharges()*distance * 100) / 100);
@@ -23,8 +23,8 @@ public class EstimateCalculator {
 		}
 	}
 
-	private double getDistance(Coordinates coordinates) {
-		return Math.sqrt(Math.pow(coordinates.getDesLat()-coordinates.getCurrLat(), 2) + Math.pow(coordinates.getDesLon()-coordinates.getCurrLon(), 2));
+	public double getDistance(double desLat, double desLon, double currLat, double currLon) {
+		return Math.sqrt(Math.pow(desLat-currLat, 2) + Math.pow(desLon-currLon, 2));
 	}
 	
 }

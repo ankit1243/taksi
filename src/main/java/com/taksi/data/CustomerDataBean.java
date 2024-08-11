@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
-import com.taksi.vo.AddCustomerRequest;
+import com.taksi.vo.Customer;
 
 import lombok.AllArgsConstructor;
 
@@ -11,9 +11,9 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CustomerDataBean {
 
-	private HashMap<String,AddCustomerRequest> customerMap;
+	private HashMap<String,Customer> customerMap;
 	
-	public boolean addCustomer(String phoneNo, AddCustomerRequest addCustomerRequest) {
+	public boolean addCustomer(String phoneNo, Customer addCustomerRequest) {
 		if(customerMap.putIfAbsent(phoneNo,addCustomerRequest) == null) return true;
 		return false;
 	}

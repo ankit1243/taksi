@@ -4,9 +4,9 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 
-import com.taksi.vo.AddDriverRequest;
+import com.taksi.vo.Driver;
 
 public interface DriverService {
 
-	public ResponseEntity<Map<String,String>> addDriver(AddDriverRequest addDriverRequest);
+	public ResponseEntity<Map<String,String>> addDriver(Driver addDriverRequest);
 }
